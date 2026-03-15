@@ -1,0 +1,51 @@
+/**
+ * StatusDot Component Styles
+ * Colored dot indicator for service/connection status.
+ * Supports glow effects and pulse animations.
+ */
+
+.status-dot {
+  display: inline-block;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* ── Running — green with glow ── */
+.status-dot--running {
+  background-color: #86efac;
+  box-shadow: 0 0 6px rgba(134, 239, 172, 0.6);
+}
+
+/* ── Starting — yellow with pulse ── */
+.status-dot--starting {
+  background-color: #fcd34d;
+  animation: status-dot-pulse 1.4s ease-in-out infinite;
+}
+
+/* ── Stopped — dim foreground ── */
+.status-dot--stopped {
+  background-color: var(--color-fg-dim);
+}
+
+/* ── Error — red with glow ── */
+.status-dot--error {
+  background-color: #fca5a5;
+  box-shadow: 0 0 6px rgba(252, 165, 165, 0.6);
+}
+
+/* ── Connected — green with glow (same as running) ── */
+.status-dot--connected {
+  background-color: #86efac;
+  box-shadow: 0 0 6px rgba(134, 239, 172, 0.6);
+}
+
+/* ── Syncing — yellow with pulse ── */
+.status-dot--syncing {
+  background-color: #fcd34d;
+  animation: status-dot-pulse 1.4s ease-in-out infinite;
+}
+
+@keyframes status-dot-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}

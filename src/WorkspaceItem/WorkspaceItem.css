@@ -1,0 +1,104 @@
+/**
+ * WorkspaceItem Component Styles
+ * Sidebar workspace button with active state accent.
+ * Active uses purple accent background, border, and text.
+ */
+
+.workspace-item {
+  all: unset;
+  box-sizing: border-box;
+  font-family: system-ui, -apple-system, sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  padding: 7px 10px;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  background: transparent;
+  color: var(--color-fg-muted);
+  cursor: pointer;
+  transition: all 0.15s ease;
+  user-select: none;
+}
+
+/* ── Hover (inactive) ── */
+.workspace-item:not(.workspace-item--active):hover {
+  background: var(--color-bg-contrast);
+}
+
+/* ── Active state — purple accent ── */
+.workspace-item--active {
+  background: rgba(169, 0, 255, 0.08);
+  border-color: rgba(169, 0, 255, 0.25);
+  color: #cc55ff;
+}
+
+/* ── Focus visible ── */
+.workspace-item:focus-visible {
+  outline: 2px solid var(--color-accent, rgba(169, 0, 255, 0.5));
+  outline-offset: 2px;
+}
+
+/* ── Icon ── */
+.workspace-item__icon {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+.workspace-item__icon svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* ── Name ── */
+.workspace-item__name {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* ── Active badge (check + "Active") ── */
+.workspace-item__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 11px;
+  font-weight: 600;
+  opacity: 0.8;
+  flex-shrink: 0;
+}
+.workspace-item__badge svg {
+  width: 14px;
+  height: 14px;
+}
+
+/* ── Compact platform override ── */
+[data-variant='compact'] .workspace-item {
+  font-size: 12px;
+  padding: 5px 8px;
+  border-radius: 6px;
+  gap: 6px;
+}
+[data-variant='compact'] .workspace-item__icon svg {
+  width: 14px;
+  height: 14px;
+}
+[data-variant='compact'] .workspace-item__badge {
+  font-size: 10px;
+}
+
+/* ── Modern platform override ── */
+[data-variant='modern'] .workspace-item {
+  font-size: 14px;
+  padding: 10px 14px;
+  border-radius: 10px;
+  gap: 10px;
+}
+[data-variant='modern'] .workspace-item__icon svg {
+  width: 18px;
+  height: 18px;
+}

@@ -1,0 +1,30 @@
+/**
+ * Card Component Styles
+ * Container with background, border, and configurable padding.
+ * Uses theme custom properties for colors.
+ */
+
+.card {
+  background: var(--color-bg-alt);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  transition: border-color 0.15s ease;
+}
+
+/* ── Padding variants ── */
+.card--pad-none { padding: 0; }
+.card--pad-sm { padding: 10px; }
+.card--pad-md { padding: 16px; }
+.card--pad-lg { padding: 24px; }
+
+/* ── Compact platform override ── */
+[data-variant='compact'] .card { border-radius: 8px; }
+[data-variant='compact'] .card--pad-sm { padding: 6px; }
+[data-variant='compact'] .card--pad-md { padding: 10px; }
+[data-variant='compact'] .card--pad-lg { padding: 16px; }
+
+/* ── Modern platform override ── */
+[data-variant='modern'] .card { border-radius: 14px; }
+[data-variant='modern'] .card--pad-sm { padding: 12px; }
+[data-variant='modern'] .card--pad-md { padding: 20px; }
+[data-variant='modern'] .card--pad-lg { padding: 28px; }

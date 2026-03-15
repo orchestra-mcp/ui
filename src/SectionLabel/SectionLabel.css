@@ -1,0 +1,28 @@
+/**
+ * SectionLabel Component Styles
+ * Small uppercase heading used to label sidebar sections and groups.
+ */
+
+.section-label {
+  font-family: system-ui, -apple-system, sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-fg-dim);
+  margin: 0 0 10px;
+  line-height: 1;
+  user-select: none;
+}
+
+/* ── Compact platform override ── */
+[data-variant='compact'] .section-label {
+  font-size: 9px;
+  margin: 0 0 6px;
+}
+
+/* ── Modern platform override ── */
+[data-variant='modern'] .section-label {
+  font-size: 11px;
+  margin: 0 0 12px;
+}

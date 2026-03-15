@@ -1,0 +1,108 @@
+/**
+ * TabRail Component Styles
+ * Vertical sidebar tab navigation with icon + label.
+ * Active item has left accent border and highlighted text.
+ * Supports collapsed (icon-only) mode.
+ */
+
+.tab-rail {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  width: 100%;
+}
+
+.tab-rail__item {
+  all: unset;
+  box-sizing: border-box;
+  font-family: system-ui, -apple-system, sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 8px 12px;
+  border-radius: 6px;
+  border-left: 2px solid transparent;
+  color: var(--color-fg-muted);
+  cursor: pointer;
+  transition: all 0.15s ease;
+  user-select: none;
+}
+
+/* ── Hover ── */
+.tab-rail__item:hover:not(.tab-rail__item--active) {
+  background: var(--color-bg-contrast);
+}
+
+/* ── Active ── */
+.tab-rail__item--active {
+  background: var(--color-bg-contrast);
+  color: var(--color-fg-bright);
+  border-left-color: var(--color-accent);
+}
+
+/* ── Focus visible ── */
+.tab-rail__item:focus-visible {
+  outline: 2px solid var(--color-accent, rgba(169, 0, 255, 0.5));
+  outline-offset: -2px;
+}
+
+/* ── Icon ── */
+.tab-rail__icon {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+.tab-rail__icon svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* ── Label ── */
+.tab-rail__label {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* ── Collapsed mode (icon only) ── */
+.tab-rail--collapsed .tab-rail__item {
+  justify-content: center;
+  padding: 10px;
+  border-left-width: 0;
+  border-bottom: 2px solid transparent;
+}
+.tab-rail--collapsed .tab-rail__item--active {
+  border-bottom-color: var(--color-accent);
+}
+
+/* ── Compact platform override ── */
+[data-variant='compact'] .tab-rail__item {
+  font-size: 12px;
+  padding: 6px 10px;
+  gap: 8px;
+}
+[data-variant='compact'] .tab-rail__icon svg {
+  width: 16px;
+  height: 16px;
+}
+[data-variant='compact'] .tab-rail--collapsed .tab-rail__item {
+  padding: 8px;
+}
+
+/* ── Modern platform override ── */
+[data-variant='modern'] .tab-rail__item {
+  font-size: 14px;
+  padding: 10px 16px;
+  border-radius: 8px;
+  gap: 12px;
+}
+[data-variant='modern'] .tab-rail__icon svg {
+  width: 20px;
+  height: 20px;
+}
+[data-variant='modern'] .tab-rail--collapsed .tab-rail__item {
+  padding: 12px;
+}
